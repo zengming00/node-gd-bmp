@@ -1,0 +1,15 @@
+{
+  "name": "gd-bmp",
+  "version": "1.0.0",
+  "description": "a 100% js graphical library, only support bmp 24bit format, internal contains 3 fonts, provider draw point/line/rect/circle/string  function, and high speed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gd",
+    "bmp"
+  ],
+  "author": "zengming",
+  "license": "MIT"
+}
