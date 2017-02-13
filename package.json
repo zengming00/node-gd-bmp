@@ -1,8 +1,8 @@
 {
   "name": "gd-bmp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a 100% js graphical library, only support bmp 24bit format, internal contains 3 fonts, provider draw point/line/rect/circle/string  function, and high speed",
-  "main": "index.js",
+  "main": "BMP24.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,5 +11,13 @@
     "bmp"
   ],
   "author": "zengming",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zengming00/node-gd-bmp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zengming00/node-gd-bmp/issues"
+  },
+  "homepage": "https://github.com/zengming00/node-gd-bmp#readme"
 }
