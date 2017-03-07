@@ -30,13 +30,15 @@ function makeImg2() {
 function rand(min, max) {
     return Math.random()*(max-min+1) + min | 0; //特殊的技巧，|0可以强制转换为整数
 }
+
 //制造验证码图片
 function makeCapcha() {
     var img = new BMP24(100, 40);
-    img.drawCircle(11, 11, 10, rand(0, 0xffffff));
+    img.drawCircle(rand(0, 100), rand(0, 40), rand(10 , 40), rand(0, 0xffffff));
+    //边框
     img.drawRect(0, 0, img.w-1, img.h-1, rand(0, 0xffffff));
-    img.fillRect(53, 15, 88, 35, rand(0, 0xffffff));
-    img.drawLine(50, 6, 3, 60, rand(0, 0xffffff));
+    img.fillRect(rand(0, 100), rand(0, 40), rand(10, 35), rand(10, 35), rand(0, 0xffffff));
+    img.drawLine(rand(0, 100), rand(0, 40), rand(0, 100), rand(0, 40), rand(0, 0xffffff));
     //return img;
 
     //画曲线
@@ -55,7 +57,7 @@ function makeCapcha() {
         }
     }
 
-    var p = "ABCDEFGHIJKLMNOPQRSTUVWXYZ3456789";
+    var p = "ABCDEFGHKMNPQRSTUVWXYZ3456789";
     var str = '';
     for(var i=0; i<5; i++){
         str += p.charAt(Math.random() * p.length |0);
@@ -78,7 +80,7 @@ function makeCapcha() {
 var start = Date.now();
 var i = 0;
 while((Date.now() - start) < 1000){
-    //var img = makeCapcha();
+    // var img = makeCapcha();
     var img = makeImg2();
     i++;
 }
@@ -90,13 +92,13 @@ http.createServer(function (req,res) {
 	if(req.url == '/favicon.ico'){
 		return res.end();
 	}
-    console.time("bmp24");
-    var img = makeCapcha();
-	//var img = makeImg2();
-    console.timeEnd("bmp24");
+  console.time("bmp24");
+  var img = makeCapcha();
+  // var img = makeImg2();
+  console.timeEnd("bmp24");
 
-    res.setHeader('Content-Type', 'image/bmp');
-    res.end(img.getFileData());
+  res.setHeader('Content-Type', 'image/bmp');
+  res.end(img.getFileData());
 
 }).listen(3000);
 

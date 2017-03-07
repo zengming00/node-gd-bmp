@@ -1,7 +1,7 @@
 {
   "name": "gd-bmp",
-  "version": "1.0.1",
-  "description": "a 100% js graphical library, only support bmp 24bit format, internal contains 3 fonts, provider draw point/line/rect/circle/string  function, and high speed",
+  "version": "1.0.2",
+  "description": "light and high speed and 100% js implement graphical library, it can running in any platform",
   "main": "BMP24.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
