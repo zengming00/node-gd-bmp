@@ -102,6 +102,45 @@ BMP24.prototype.drawLineV = function drawLineV(y1, y2, x, rgb) {
 }
 
 BMP24.prototype.drawLine = function drawLine(x1, y1, x2, y2, rgb) {
+    var x, y, dx, dy, s1, s2, p, temp, interchange, i;
+    x = x1;
+    y = y1;
+    dx = x2 > x1 ? (x2 - x1) : (x1 - x2);
+    dy = y2 > y1 ? (y2 - y1) : (y1 - y2);
+
+    s1 = x2 > x1 ? 1 : -1;
+    s2 = y2 > y1 ? 1 : -1;
+
+    if (dy > dx) {
+        temp = dx;
+        dx = dy;
+        dy = temp;
+        interchange = true;
+    } else {
+        interchange = false;
+    }
+
+    p = (dy << 1) - dx;
+    for (i = 0; i <= dx; i++) {
+        this.drawPoint(x, y, rgb);
+        if (p >= 0) {
+            if (interchange)
+                x = x + s1;
+            else
+                y = y + s2;
+            p = p - (dx << 1);
+        }
+        if (interchange)
+            y = y + s2;
+        else
+            x = x + s1;
+        p = p + (dy << 1);
+    }
+}
+
+/*
+// 存在bug 无法画垂直线
+BMP24.prototype.drawLine = function drawLine(x1, y1, x2, y2, rgb) {
     var t, distance;
     var x = 0, y = 0, delta_x, delta_y;
     var incx, incy;
@@ -142,6 +181,7 @@ BMP24.prototype.drawLine = function drawLine(x1, y1, x2, y2, rgb) {
         }
     }
 }
+*/
 
 BMP24.prototype.drawRect = function fillRect(x1, y1, x2, y2, rgb) {
     this.drawLineH(x1, x2, y1, rgb);
