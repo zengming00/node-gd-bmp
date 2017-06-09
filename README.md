@@ -127,10 +127,21 @@ BMP24.loadFromFile(filename, cb)
 obj.getFileData()
 ```
 
-**其它绘图API**
+**Data Url**
+```js
+const dataUrl = 'data:image/bmp;base64,' + img.getFileData().toString('base64');
+```
+
+**其它API**
 ```js
 //画点, RGB颜色值（例如红色0xff0000）
 obj.drawPoint(x, y, rgb)
+
+//画点, rgb:{ blue:number, green:number, red:number }， 注意颜色值要保证在0-255之间（包含0和255）
+obj.drawPointRGB(x, y, rgb)
+
+//获取像素点颜色, 返回 rgb: { blue:number, green:number, red:number } ，如果xy坐标超出图片范围返回null
+obj.getPointRGB(x, y)
 
 //画线
 obj.drawLine(x1, y1, x2, y2, rgb)
@@ -153,6 +164,10 @@ obj.drawString(str, x, y, font, color)
 另外你也可以参考demo自己生成和定义字体
 
 颜色采用数值的方式，按RGB排列，例如：红色0xff0000，绿色0x00ff00，蓝色0x0000ff
+
+# 只支持24位bmp
+
+推荐用windows自带的画图工具转码bmp
 
 # License
 MIT

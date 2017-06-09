@@ -48,6 +48,16 @@ BMP24.loadFromFile = function loadFromFile(filename, cb) {
     fs.readFile(filename, function (err, data) {
         if (err) return cb(err);
         var img = new BMP24(0, 0);
+
+        // 简单的判断是否是支持的格式
+        if (data.readInt32LE(10) !== 54) {
+            return cb(new Error('unsupported format: headlen !== 54'));
+        } else if (data.readInt32LE(14) !== 40) {
+            return cb(new Error('unsupported format: bitmapInfoHead.length !== 40'));
+        } else if (data.readInt32LE(28) !== 24) {
+            return cb(new Error('unsupported format: only support 24bit bmp'));
+        }
+
         img.w = data.readInt32LE(18);
         img.h = data.readInt32LE(22);
         img.fileLen = data.length;
@@ -89,7 +99,7 @@ BMP24.prototype.drawPointRGB = function drawPointRGB(x, y, rgb) {
     //数据第一行为图像的最底一行，颜色数据在十六进制编辑器中的排列是蓝绿红
     var line = this.h - y - 1;//因为data的第一行是图片的最后一行，所以要反过来
     var pos = 54 + (x * 3) + (this._lineByteNum * line);
-    
+
     this._data.writeUInt8(rgb.blue, pos); //蓝
     this._data.writeUInt8(rgb.green, pos + 1); //绿
     this._data.writeUInt8(rgb.red, pos + 2); //红
