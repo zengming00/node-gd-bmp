@@ -1,2 +1,3 @@
-.idea
-/demo/output/*.bmp
+/output/*.bmp
+/dist/
+/node_modules/

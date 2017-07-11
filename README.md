@@ -132,7 +132,7 @@ obj.getFileData()
 const dataUrl = 'data:image/bmp;base64,' + img.getFileData().toString('base64');
 ```
 
-**其它API**
+**API**
 ```js
 //画点, RGB颜色值（例如红色0xff0000）
 obj.drawPoint(x, y, rgb)
@@ -140,7 +140,7 @@ obj.drawPoint(x, y, rgb)
 //画点, rgb:{ blue:number, green:number, red:number }， 注意颜色值要保证在0-255之间（包含0和255）
 obj.drawPointRGB(x, y, rgb)
 
-//获取像素点颜色, 返回 rgb: { blue:number, green:number, red:number } ，如果xy坐标超出图片范围返回null
+//获取像素点颜色, 返回 rgb: { blue:number, green:number, red:number } ，如果xy坐标超出图片范围将抛出错误
 obj.getPointRGB(x, y)
 
 //画线
