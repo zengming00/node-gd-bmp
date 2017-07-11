@@ -1,11 +1,11 @@
 {
   "name": "gd-bmp",
-  "version": "1.2.0",
+  "version": "1.2.4",
   "description": "light and high speed and 100% js implement graphical library, it can running in any platform",
-  "main": "./dist/BMP24.js",
-  "typings": "./dist/BMP24.d.ts",
+  "main": "dist/BMP24.js",
+  "typings": "dist/BMP24.d.ts",
   "files": [
-    "./dist/lib/"
+    "dist/*"
   ],
   "scripts": {
     "compile": "rm -rf dist && tsc",

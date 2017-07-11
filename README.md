@@ -5,7 +5,7 @@ BUT only support bmp 24bit format, internal contains 3 fonts
 ```javascript
 var http = require('http');
 var fs = require('fs');
-var BMP24 = require('../BMP24');//gd-bmp
+var BMP24 = require('gd-bmp').BMP24;
 
 /*
  用PCtoLCD2002取字模
@@ -113,7 +113,7 @@ console.log('localhost:3000');
 **获得对象的两种方式：**
 * 构造函数，创建指定宽高的图片对象(初始化为一张全黑的图片)
 ```javascript
-var BMP24 = require('gd-bmp');
+var BMP24 = require('gd-bmp').BMP24;
 var obj = new BMP24(w, h);
 ```
 * 从文件加载bmp (注意！必需确保文件是24位bmp)
