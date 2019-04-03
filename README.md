@@ -1,3 +1,8 @@
+# 未来将使用的 License
+<a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" /></a>
+
+在2020年4月3日以后将正式使用反996许可证，目的是阻止违反劳动法的公司使用许可证下的软件或代码，并强迫这些公司权衡他们的行为
+
 # node-gd-bmp
 light and high speed and 100% js implement graphical library, it can running in any platform,
 BUT only support bmp 24bit format, internal contains 3 fonts
