@@ -1,38 +1,45 @@
 {
-  "name": "gd-bmp",
-  "version": "1.2.4",
-  "description": "light and high speed and 100% js implement graphical library, it can running in any platform",
-  "main": "dist/BMP24.js",
-  "typings": "dist/BMP24.d.ts",
-  "files": [
-    "dist/*"
-  ],
-  "scripts": {
-    "compile": "rm -rf dist && tsc",
-    "lint": "tslint --fix ./src/**/*.ts",
-    "test": "npm run compile && node ./dist/demo/filter",
-    "test2": "npm run compile && node ./dist/demo/test",
-    "prepublish": "npm run lint && npm run compile"
-  },
-  "keywords": [
-    "gd",
-    "bmp"
-  ],
-  "author": "zengming",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zengming00/node-gd-bmp.git"
-  },
-  "bugs": {
-    "url": "https://github.com/zengming00/node-gd-bmp/issues"
-  },
-  "homepage": "https://github.com/zengming00/node-gd-bmp#readme",
-  "dependencies": {
-    "@types/node": "^8.0.10"
-  },
-  "devDependencies": {
-    "tslint": "^5.8.0",
-    "typescript": "^2.6.2"
-  }
+    "name": "gd-bmp",
+    "version": "2.0.1",
+    "description": "light and high speed and 100% js implement graphical library, it can running in any platform",
+    "main": "dist/BMP24.js",
+    "typings": "dist/BMP24.d.ts",
+    "files": [
+        "dist/*"
+    ],
+    "scripts": {
+        "compile": "rm -rf dist && tsc",
+        "lint": "eslint --fix ./src/**/*.ts",
+        "test": "npm run compile && node ./dist/demo/filter",
+        "test2": "npm run compile && node ./dist/demo/test",
+        "prepublish": "npm run lint && npm run compile"
+    },
+    "keywords": [
+        "gd",
+        "bmp"
+    ],
+    "author": "zengming",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zengming00/node-gd-bmp.git"
+    },
+    "bugs": {
+        "url": "https://github.com/zengming00/node-gd-bmp/issues"
+    },
+    "homepage": "https://github.com/zengming00/node-gd-bmp#readme",
+    "dependencies": {
+        "@types/node": "^14.14.3"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.5.0",
+        "@typescript-eslint/parser": "^4.5.0",
+        "eslint": "^7.12.0",
+        "eslint-config-standard": "^15.0.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.2",
+        "typescript": "^4.0.3"
+    }
 }
